@@ -1,0 +1,12 @@
+.codeElement {
+  position: absolute;
+  box-sizing: border-box;
+  cursor: default;
+  overflow: hidden;
+  border: 1px solid #444;
+  border-radius: 4px;
+}
+
+.codeElement:hover {
+  border-color: #4a90d9;
+}

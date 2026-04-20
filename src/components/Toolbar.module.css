@@ -1,0 +1,92 @@
+.toolbar {
+  flex-shrink: 0;
+  background: #2a2a2a;
+  border-right: 1px solid #3a3a3a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 0;
+  transition: width 0.2s ease;
+  overflow: hidden;
+}
+
+.toolbarOpen {
+  width: 80px;
+}
+
+.toolbarClosed {
+  width: 28px;
+}
+
+.toggleBtn {
+  background: transparent;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  font-size: 0.6rem;
+  padding: 6px 4px;
+  width: 100%;
+  text-align: center;
+  font-family: inherit;
+}
+
+.toggleBtn:hover {
+  color: #fff;
+  background: #3a3a3a;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 6px 0;
+  width: 100%;
+}
+
+.sectionLabel {
+  font-size: 0.6rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 6px;
+  align-self: flex-start;
+  padding-left: 4px;
+}
+
+.toolBtn {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 4px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.toolBtn:hover {
+  background: #3a3a3a;
+  border-color: #4a4a4a;
+}
+
+.toolIcon {
+  font-size: 1.1rem;
+  color: #ccc;
+  line-height: 1;
+}
+
+.toolLabel {
+  font-size: 0.6rem;
+  color: #888;
+  text-align: center;
+}
+
+.toolBtn:hover .toolIcon,
+.toolBtn:hover .toolLabel {
+  color: #fff;
+}

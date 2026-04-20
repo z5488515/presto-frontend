@@ -1,0 +1,17 @@
+.textElement {
+  position: absolute;
+  overflow-y: auto;
+  text-align: left;
+  border: 1px solid #e0e0e0;
+  padding: 4px;
+  box-sizing: border-box;
+  cursor: default;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.4;
+  user-select: none;
+}
+
+.textElement:hover {
+  border-color: #aaa;
+}
