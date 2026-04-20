@@ -1,3 +1,5 @@
+/* global cy, describe, it, before, Cypress */
+
 describe('Slide Element Path', () => {
   const email = `elem${Date.now()}@test.com`;
   const password = 'password123';

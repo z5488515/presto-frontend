@@ -1,3 +1,5 @@
+/* global cy, describe, it */
+
 describe('Happy Path', () => {
   const email = `test${Date.now()}@test.com`;
   const password = 'password123';
