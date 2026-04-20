@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE = 'http://localhost:5005';
+const BASE = 'https://z5488515-presto-be.vercel.app';
 
 export const getStore = async (token: string) => {
   const res = await axios.get(`${BASE}/store`, {
