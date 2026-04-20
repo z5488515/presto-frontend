@@ -1,4 +1,4 @@
-// Dashboard.tsx: displays all presentations and handles creating new ones
+//Dashboard.tsx
 
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -18,12 +18,10 @@ function Dashboard({ token, onError }: DashboardProps) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Guard against empty token occurs briefly during logout transition
     if (!token) return;
     const fetchStore = async () => {
       try {
         const data = await getStore(token);
-        // Safely handle brand new accounts where store returns {} with no presentations key
         setStore({
           presentations: Array.isArray(data?.presentations) ? data.presentations : [],
         });
@@ -33,16 +31,15 @@ function Dashboard({ token, onError }: DashboardProps) {
     };
     fetchStore();
   }, [token]);
-
+  //TODO: FIX STYLING FOR NEW PRES and EDIT NAME
   const handleCreate = async (name: string, description: string, thumbnail: string | null) => {
-    // New presentations start with one empty slide and no default background
     const newPresentation: Presentation = {
       id: crypto.randomUUID(),
       name,
       description,
       thumbnail,
       slides: [{ id: crypto.randomUUID(), elements: [], background: null }],
-      defaultBackground: null,
+      defaultBackground: null
     };
     const updatedStore = {
       ...store,
@@ -61,11 +58,8 @@ function Dashboard({ token, onError }: DashboardProps) {
     <div className={styles.dashboard}>
       <div className={styles.header}>
         <h1 className={styles.heading}>Dashboard</h1>
-        <button className={styles.newBtn} onClick={() => setShowModal(true)}>
-          + New Presentation
-        </button>
+        <button className={styles.newBtn} onClick={() => setShowModal(true)}>+ New Presentation</button>
       </div>
-
       <div className={styles.grid}>
         {store.presentations.map(p => (
           <div
@@ -76,20 +70,16 @@ function Dashboard({ token, onError }: DashboardProps) {
             <div className={styles.thumbnail}>
               {p.thumbnail
                 ? <img src={p.thumbnail} alt={p.name} />
-                : <div className={styles.thumbnailPlaceholder} />
-              }
+                : <div className={styles.thumbnailPlaceholder} />}
             </div>
             <div className={styles.cardInfo}>
               <p className={styles.cardName}>{p.name}</p>
               {p.description && <p className={styles.cardDesc}>{p.description}</p>}
-              <p className={styles.cardSlides}>
-                {p.slides.length} slide{p.slides.length !== 1 ? 's' : ''}
-              </p>
+              <p className={styles.cardSlides}>{p.slides.length} slide{p.slides.length !== 1 ? 's' : ''}</p>
             </div>
           </div>
         ))}
       </div>
-
       {showModal && (
         <NewPresentationModal
           onClose={() => setShowModal(false)}
